@@ -1,11 +1,7 @@
 import Head from 'next/head';
 import styles from '../../styles/Home.module.css';
-import { useRouter } from "next/router";
 
-
-const SignaturePage = () => {
-    const router = useRouter();
-    const { id } = router.query;
+const SignaturePage = ({id}) => {
     return (
         <div className={styles.container}>
         <Head>
@@ -19,4 +15,13 @@ const SignaturePage = () => {
       </div>
     )
 }
+
+export async function getServerSideProps({params}) {
+    return {
+        props: {
+            id: params.id
+        }
+    }
+}
+
 export default SignaturePage;
