@@ -1,8 +1,7 @@
 export default function handler(req, res) {
   const {
-    query: {
-      name
-    }
+    query: { name }
   } = req;
+
   res.status(200).json({ name });
 }
